@@ -47,16 +47,68 @@ const setBannerCarouselItem = (banner) => {
 };
 
 //? ambil data dari API
+// const getDetail = async () => {
+//   try {
+//     const res = await fecth("https://animeapi-askiahnur1.b4a.run/anime?sort=popularity");
+//     const popular = await res.json();
+//     console.log(popular);
+
+//     const res2 = await fecth("https://animeapi-askiahnur1.b4a.run/anime?sort=trending");
+//     const trending = await res2.json();
+
+//     const res3 = await fecth("https://animeapi-askiahnur1.b4a.run/anime?sort=top");
+//     const top = await res3.json();
+
+//     console.log (popular,trending,top)
+//   } catch (error) {}
+// };
+
+
+// const listSection = [
+//   {
+//     name: "Popular",
+//     data: popular, //? ganti dengan data yang sudah diambil
+//   },
+//   {
+//     name: "Trending",
+//     data: trending, //? ganti dengan data yang sudah diambil
+//   },
+//   {
+//     name: "Top",
+//     data: top, //? ganti dengan data yang sudah diambil
+//   },
+//   // tambahkan section lain
+// ];
+
+// setBannerCarouselItem(result);
+// // menampilkan data ke halaman HTML
+// document.querySelector("main").innerHTML = listSection.map((item) => section(item)).join("");
+
+// // memberi action pada button scroll kiri dan kanan
+// listSection.forEach((item) => {
+//   const sectionName = item.name.toLowerCase();
+
+//   const prev = document.querySelector("#" + sectionName + " button[data-carousel-prev]");
+//   prev.onclick = () => {
+//     document.getElementById(sectionName + "-container").scrollLeft -= 1000;
+//   };
+
+//   const next = document.querySelector("#" + sectionName + " button[data-carousel-next]");
+//   next.onclick = () => {
+//     document.getElementById(sectionName + "-container").scrollLeft += 1000;
+//   };
+// });
+
 const popular = fetch("https://animeapi-askiahnur1.b4a.run/anime?sort=popularity")
-  .then((res) => res.json())
-  .then((result) => {
-    const listSection = [
-      {
-        name: "Popular",
-        data: result, //? ganti dengan data yang sudah diambil
-      },
-      // tambahkan section lain
-    ];
+.then((res) => res.json())
+.then((result) => {
+  const listSection = [
+    {
+      name: "Popular",
+      data: result, //? ganti dengan data yang sudah diambil
+    },
+    // tambahkan section lain
+  ];
 
     setBannerCarouselItem(result);
     // menampilkan data ke halaman HTML
