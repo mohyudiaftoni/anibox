@@ -33,10 +33,9 @@ const render = async () => {
   const data = await getDetail(id);
 
   titleEl.innerHTML = data.title.romaji;
-  bannerImageEl.innerHTML = data.bannerImage;
-  console.log(bannerImageEl)
-  console.log(data.bannerImage)
-  coverImageEl.innerHTML = data.coverImage;
+  bannerImageEl.src= data.bannerImage;
+  coverImageEl.src = data.coverImage;
+  descriptionEl.innerText=data.description;
   
 
   const info = [
